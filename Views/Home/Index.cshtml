@@ -1,0 +1,89 @@
+﻿@model IEnumerable<MemberModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Freelancers</h1>
+    @* <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>
+
+
+<div class="panel">
+    <hr />
+    <div class="row">
+        <div class="col-lg-2" style="background: cadetblue;border-radius: 20px;">
+            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Home" asp-action="MemberRegistration">
+                <p style="color: #fff;margin:0px">Create Member</p>
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+<div class="text-center">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <table class="table table-responsive" style="width:100%">
+                <tr style="background-color: #416566;color: #fff;">
+                    <th width="100px">
+                        @Html.DisplayNameFor(model => model.Username)
+                    </th>
+                    <th width="100px">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th width="100px">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th width="100px">
+                        @Html.DisplayNameFor(model => model.SkillSets)
+                    </th>
+                    <th width="100px">
+                        @Html.DisplayNameFor(model => model.Hobby)
+                    </th>
+                    <th width="150px">
+                        Action
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SkillSets)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hobby)
+                        </td>
+                        <td>
+                            <a asp-area="" asp-controller="Home" asp-action="MemberList">
+                                Edit
+                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a asp-area="" asp-controller="Home" asp-action="MemberList">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+@* <div class="panel">
+    <div class="row">
+        <div class="col-lg-6">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MemberRegistration">Registration</a>
+        </div>
+        <div class="col-lg-6">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MemberList">Report</a>
+        </div>
+    </div>
+</div> *@

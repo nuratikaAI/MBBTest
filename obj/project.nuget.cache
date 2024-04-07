@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y5Vic3xdZd9JZMG6NE07fgCiwIKAPcL9n/Nl+6woIZK8K2UgZpO8sgLEBCThzxa+LyI7qLFDO3as/0cvlA76Jw==",
+  "success": true,
+  "projectFilePath": "D:\\Atika\\IV\\MBBTest_MVC\\MBBTest_MVC\\MBBTest_MVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LENOVO\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

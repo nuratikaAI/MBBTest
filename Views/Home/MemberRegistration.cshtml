@@ -1,0 +1,151 @@
+﻿@model MemberModel
+@{
+    ViewData["Title"] = "Member Registration";
+}
+<div class="text-center">
+    <h1 class="display-4">Register Member</h1>
+</div>
+
+<div class="panel">
+    <hr />
+    <div class="row">
+        <div class="col-lg-2" style="background: cadetblue;border-radius: 20px;">
+            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Home" asp-action="Index">
+                <p style="color: #fff;margin:0px">Back</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<form action="/Home/MemberRegistration" method="post">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="padding: 20px;">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SkillSets, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SkillSets, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SkillSets, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hobby, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Hobby, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Hobby, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <div class="row text-center">
+            <div class="col-md-1"></div>
+            <div class="col-md-offset-2 col-md-2" style="background: cadetblue;border-radius: 20px;">
+                <input type="submit" value="Create" class="btn btn-default text-center" style="color: #fff;"/>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+}
+</form>
+
+
+@* <div class="panel">
+    <form id="register-member" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <label class="report-header">* Username</label> :
+                    <input type="text" maxlength="50" class="form-control" name="Username" id="Username"></input>
+                </div>
+
+                <div class="form-group">
+                    <label class="report-header">* Email</label> :
+                    <input type="text" maxlength="50" class="form-control" name="Email" id="Email"></input>
+                </div>
+
+                <div class="form-group">
+                    <label class="report-header">* Mobile Number</label> :
+                    <input type="text" maxlength="50" class="form-control" name="TelM" id="TelM"></input>
+                </div>
+            </div>
+
+            <input type="reset" value="Reset" class="btn btn-warning" id="btnClear" hidden="" />
+            <input class="btn btn-info" type="submit" value="Save" id="btnSave" />
+        </div>
+    </form>
+</div>
+ *@
+@* @section scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnSave").on("click", Save);
+        });
+
+        function Save() {
+            var myForm;
+
+            myForm = new FormData($('#member-register')[0]);
+
+            var modeldata = {
+                Username: $("#Username").val(),
+                Email: $("#Email").html(),
+                TelM: $("#TelM").val()
+            };
+
+            $.ajax({
+                url: "../Member/Save?Username=" + modeldata.Username +
+                    "&Email=" + modeldata.Email +
+                    "&TelM=" + modeldata.TelM,
+                type: "POST",
+                data: myForm,
+                enctype: 'multipart/form-data',
+                processData: false,  // Important!
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                    if (data == 505) {
+                        ErrorLogA(window.location.href, 505, username, token);
+                        window.location.href = global.forceURL;
+                        return false;
+                    };
+
+                    alert("Saved");
+                    location.reload(true);
+                },
+                error: function (response) {
+                    ErrorLogA(window.location.href, response.responseText, username, token);
+                }
+            });
+        }
+    </script>
+} *@
